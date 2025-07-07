@@ -1,28 +1,31 @@
-const mineflayer = require('mineflayer');
+const { Client } = require('bedrock-protocol')
 
 function createBot() {
-  const bot = mineflayer.createBot({
-    host: "ProHunterz301.aternos.me",
-    port: 13487, // ✅ Use your current Aternos port
-    username: "AFKbot2"
-  });
+  const client = Client.createClient({
+    host: 'ProHunterz30.aternos.me', // e.g. play.example.com
+    port: 42007,            // Bedrock default port
+    username: 'AFKBotBedrock' // Use any name
+  })
 
-  bot.on('chat', (username, message) => {
-    console.log(`<${username}> ${message}`);
-  });
+  client.on('join', () => {
+    console.log('✅ Bot connected to Bedrock server.')
+  })
 
-  bot.on('kicked', (reason) => {
-    console.log('Kicked:', reason);
-  });
+  client.on('packet', ({ name, params }) => {
+    if (name === 'text') {
+      console.log(`[CHAT] ${params.message}`)
+    }
+  })
 
-  bot.on('error', (err) => {
-    console.log('Error:', err);
-  });
+  client.on('disconnect', (reason) => {
+    console.log('❌ Disconnected:', reason)
+    console.log('Reconnecting in 5 sec...')
+    setTimeout(createBot, 5000)
+  })
 
-  bot.on('end', () => {
-    console.log('Bot disconnected, reconnecting in 5 sec...');
-    setTimeout(createBot, 5000);
-  });
+  client.on('error', (err) => {
+    console.log('Error:', err)
+  })
 }
 
-createBot();
+createBot()
