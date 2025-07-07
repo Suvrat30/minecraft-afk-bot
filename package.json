@@ -1,11 +1,11 @@
 {
-  "name": "minecraft-afk-bot",
+  "name": "bedrock-bot",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "mineflayer": "^4.6.2"
+    "bedrock-protocol": "^1.3.0"
   }
 }
