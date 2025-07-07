@@ -4,7 +4,7 @@ function createBot() {
   const bot = mineflayer.createBot({
     host: "ProHunterz301.aternos.me",
     port: 13487, // ✅ Use your current Aternos port
-    username: "AFKbot2"
+    username: "AFKbot3"
   });
 
   bot.on('chat', (username, message) => {
