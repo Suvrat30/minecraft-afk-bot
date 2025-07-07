@@ -1,9 +1,9 @@
 const mineflayer = require('mineflayer');
 
 const bot = mineflayer.createBot({
-  host: "ProHunterz301.aternos.me", // ← your exact Aternos IP
-  port: 13487,                      // ← your Aternos port
-  username: "AFKboot12"            // ← unique name (not your real Minecraft account)
+  host: "ProHunterz301.aternos.me", // Change this to your real Aternos host
+  port: 13487,                      // Change this to your real Aternos port
+  username: "AFKboot12"
 });
 
 bot.on('login', () => {
@@ -12,21 +12,17 @@ bot.on('login', () => {
 
 bot.on('spawn', () => {
   console.log("✅ Bot spawned in the world");
-  bot.chat("I am online! AFKbot12 here.");
-});
-
-bot.on('chat', (username, message) => {
-  console.log(`<${username}> ${message}`);
+  bot.chat("Hello world! AFKbot12 is online.");
 });
 
 bot.on('kicked', (reason) => {
-  console.log("❌ Kicked from server:", reason);
+  console.log("❌ Bot was kicked:", reason);
 });
 
 bot.on('error', (err) => {
-  console.log("❌ Error:", err);
+  console.log("❌ Connection error:", err);
 });
 
 bot.on('end', () => {
-  console.log("⚠️ Bot disconnected");
+  console.log("⚠️ Bot disconnected from server");
 });
