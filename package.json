@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "postinstall": "npm config set registry https://registry.npmjs.org/"
+    "start": "node index.js"
   },
   "dependencies": {
-    "bedrock-protocol": "1.2.0"
+    "bedrock-protocol": "^3.47.0"
   }
 }
