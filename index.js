@@ -4,7 +4,7 @@ function createBot() {
   const bot = mineflayer.createBot({
     host: "ProHunterz301.aternos.me",
     port: 13487,
-    username: "suvrat1252gmail.com",
+    username: "animez.creator",
     auth: "microsoft",
   });
 
